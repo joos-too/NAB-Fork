@@ -203,6 +203,16 @@ specific label files (see section below). Please type:
 
 to see all the options.
 
+##### Tuning the simple stats detectors
+
+If you are using the bundled detectors `zScore`, `ewma`, and
+`adaptiveThreshold`, you can tune their parameters via environment variables.
+The helper script `scripts/run_simple_stats_detectors.py` will load an env file
+before running the NAB pipeline.
+
+- Start by copying `config/simple_stats.env.example` to `config/simple_stats.env`
+- Run: `python3 scripts/run_simple_stats_detectors.py`
+
 ##### Running non-Python 3 detectors
 
 NAB is a Python 3 framework, and can only integrate Python 3 detectors. The following detectors must be run outside the NAB runtime and integrated for scoring in a later step. These detectors include:

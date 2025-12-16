@@ -4,6 +4,11 @@
         "reward_low_FP_rate": 65.15400017974811,
         "standard": 74.85377223215792
     },
+    "adaptiveThreshold": {
+        "reward_low_FN_rate": 29.714693746246148,
+        "reward_low_FP_rate": 0.0,
+        "standard": 15.233759095214634
+    },
     "contextOSE": {
         "reward_low_FN_rate": 73.18167250416667,
         "reward_low_FP_rate": 66.97713919047413,
@@ -13,6 +18,11 @@
         "reward_low_FN_rate": 63.80014835063793,
         "reward_low_FP_rate": 46.19530112566379,
         "standard": 58.20022252594827
+    },
+    "ewma": {
+        "reward_low_FN_rate": 30.847755521003556,
+        "reward_low_FP_rate": 0.0,
+        "standard": 17.20806286694453
     },
     "expose": {
         "reward_low_FN_rate": 26.920946783333335,
@@ -73,5 +83,10 @@
         "reward_low_FN_rate": 47.4100271583046,
         "reward_low_FP_rate": 20.86798582474138,
         "standard": 39.649523496077585
+    },
+    "zScore": {
+        "reward_low_FN_rate": 8.783025391636205,
+        "reward_low_FP_rate": 0.0,
+        "standard": 0.0
     }
 }
