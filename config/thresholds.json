@@ -15,16 +15,16 @@
     },
     "adaptiveThreshold": {
         "reward_low_FN_rate": {
-            "score": -128.59286576306428,
-            "threshold": 0.97877633428822
+            "score": -82.23745600324648,
+            "threshold": 0.5328252743830345
         },
         "reward_low_FP_rate": {
-            "score": -116.0,
-            "threshold": 1.1
+            "score": -93.66529236568532,
+            "threshold": 0.995462516202447
         },
         "standard": {
-            "score": -80.6576788991018,
-            "threshold": 0.9999579631992336
+            "score": -42.59192240605547,
+            "threshold": 0.584063510531969
         }
     },
     "bayesChangePt": {
@@ -71,16 +71,16 @@
     },
     "ewma": {
         "reward_low_FN_rate": {
-            "score": -124.64981078690722,
-            "threshold": 0.9991901431476886
+            "score": -100.7293632703978,
+            "threshold": 0.999668972775046
         },
         "reward_low_FP_rate": {
-            "score": -116.0,
-            "threshold": 1.1
+            "score": -108.65922130935522,
+            "threshold": 0.9999999999966692
         },
         "standard": {
-            "score": -76.07729414868845,
-            "threshold": 0.9999999999677941
+            "score": -56.39467211962639,
+            "threshold": 0.9999943819860542
         }
     },
     "expose": {
@@ -253,16 +253,16 @@
     },
     "zScore": {
         "reward_low_FN_rate": {
-            "score": -201.4350716371071,
-            "threshold": 0.9999999999986536
+            "score": -80.00408707148397,
+            "threshold": 0.9986942862841394
         },
         "reward_low_FP_rate": {
-            "score": -116.0,
-            "threshold": 1.1
+            "score": -73.41168792079543,
+            "threshold": 0.9999999922262099
         },
         "standard": {
-            "score": -116.0,
-            "threshold": 1.1
+            "score": -40.77167248756035,
+            "threshold": 0.9993236573455644
         }
     }
 }
