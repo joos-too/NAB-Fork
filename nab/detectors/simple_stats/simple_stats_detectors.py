@@ -47,9 +47,9 @@ class ZScoreDetector(AnomalyDetector):
   def __init__(self, *args, **kwargs):
     super(ZScoreDetector, self).__init__(*args, **kwargs)
 
-    self.windowSize = int(os.environ.get("NAB_ZSCORE_WINDOW", "10"))
-    self.threshold = float(os.environ.get("NAB_ZSCORE_THRESHOLD", "3.0"))
-    self.scale = float(os.environ.get("NAB_ZSCORE_SCALE", "1.0"))
+    self.windowSize = int(os.environ.get("NAB_ZSCORE_WINDOW", "250"))
+    self.threshold = float(os.environ.get("NAB_ZSCORE_THRESHOLD", "2.5"))
+    self.scale = float(os.environ.get("NAB_ZSCORE_SCALE", "0.7"))
     self.minStd = float(os.environ.get("NAB_ZSCORE_MIN_STD", "1e-6"))
 
     self.window = deque(maxlen=self.windowSize)
@@ -93,9 +93,9 @@ class EwmaDetector(AnomalyDetector):
   def __init__(self, *args, **kwargs):
     super(EwmaDetector, self).__init__(*args, **kwargs)
 
-    self.alpha = float(os.environ.get("NAB_EWMA_ALPHA", "0.2"))
+    self.alpha = float(os.environ.get("NAB_EWMA_ALPHA", "0.1"))
     self.threshold = float(os.environ.get("NAB_EWMA_THRESHOLD", "3.0"))
-    self.scale = float(os.environ.get("NAB_EWMA_SCALE", "1.0"))
+    self.scale = float(os.environ.get("NAB_EWMA_SCALE", "0.8"))
     self.minStd = float(os.environ.get("NAB_EWMA_MIN_STD", "1e-6"))
 
     self.ewma = None
@@ -142,9 +142,9 @@ class AdaptiveThresholdDetector(AnomalyDetector):
   def __init__(self, *args, **kwargs):
     super(AdaptiveThresholdDetector, self).__init__(*args, **kwargs)
 
-    self.windowSize = int(os.environ.get("NAB_ADAPTIVE_WINDOW", "20"))
-    self.sensitivity = float(os.environ.get("NAB_ADAPTIVE_SENSITIVITY", "1.5"))
-    self.scale = float(os.environ.get("NAB_ADAPTIVE_SCALE", "0.5"))
+    self.windowSize = int(os.environ.get("NAB_ADAPTIVE_WINDOW", "100"))
+    self.sensitivity = float(os.environ.get("NAB_ADAPTIVE_SENSITIVITY", "2.0"))
+    self.scale = float(os.environ.get("NAB_ADAPTIVE_SCALE", "0.6"))
     self.minDev = float(os.environ.get("NAB_ADAPTIVE_MIN_DEV", "1e-6"))
 
     self.window = deque(maxlen=self.windowSize)
