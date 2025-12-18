@@ -9,6 +9,7 @@ dist/
 nab.egg-info/
 .idea/
 .project
+.venv
 .pydevproject
 htmjava.log
 nab/detectors/htmjava/.pydevproject
