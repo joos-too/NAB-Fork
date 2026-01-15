@@ -1,12 +1,11 @@
 """
-Simple streaming baseline detectors for NAB.
+Simple streaming statistical detectors for NAB.
 
 These are implemented as NAB-native detectors (subclasses of AnomalyDetector),
 so they can be run via `run.py` like any other detector.
 """
 from collections import deque
 import math
-import os
 
 from nab.detectors.base import AnomalyDetector
 
@@ -93,7 +92,7 @@ class EwmaDetector(AnomalyDetector):
   def __init__(self, *args, **kwargs):
     super(EwmaDetector, self).__init__(*args, **kwargs)
 
-    self.alpha = 0.2
+    self.alpha = 0.1
     self.threshold = 3.0
     self.scale = 0.8
     self.minStd = 1e-6
