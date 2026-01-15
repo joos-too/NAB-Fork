@@ -189,12 +189,10 @@ if __name__ == "__main__":
   if "ARTime" in args.detectors:
     from nab.detectors.ARTime.ARTime_detector import ARTimeDetector
   if ("zScore" in args.detectors
-      or "ewma" in args.detectors
-      or "adaptiveThreshold" in args.detectors):
+      or "ewma" in args.detectors):
     from nab.detectors.simple_stats.simple_stats_detectors import (
       ZScoreDetector,
-      EwmaDetector,
-      AdaptiveThresholdDetector)
+      EwmaDetector)
 
   if args.skipConfirmation or checkInputs(args):
     main(args)

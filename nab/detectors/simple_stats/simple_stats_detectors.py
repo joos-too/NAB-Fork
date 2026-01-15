@@ -47,10 +47,10 @@ class ZScoreDetector(AnomalyDetector):
   def __init__(self, *args, **kwargs):
     super(ZScoreDetector, self).__init__(*args, **kwargs)
 
-    self.windowSize = int(os.environ.get("NAB_ZSCORE_WINDOW", "250"))
-    self.threshold = float(os.environ.get("NAB_ZSCORE_THRESHOLD", "2.5"))
-    self.scale = float(os.environ.get("NAB_ZSCORE_SCALE", "0.7"))
-    self.minStd = float(os.environ.get("NAB_ZSCORE_MIN_STD", "1e-6"))
+    self.windowSize = 250
+    self.threshold = 2.5
+    self.scale = 0.7
+    self.minStd = 1e-6
 
     self.window = deque(maxlen=self.windowSize)
     self._recordIndex = 0
@@ -93,10 +93,10 @@ class EwmaDetector(AnomalyDetector):
   def __init__(self, *args, **kwargs):
     super(EwmaDetector, self).__init__(*args, **kwargs)
 
-    self.alpha = float(os.environ.get("NAB_EWMA_ALPHA", "0.1"))
-    self.threshold = float(os.environ.get("NAB_EWMA_THRESHOLD", "3.0"))
-    self.scale = float(os.environ.get("NAB_EWMA_SCALE", "0.8"))
-    self.minStd = float(os.environ.get("NAB_EWMA_MIN_STD", "1e-6"))
+    self.alpha = 0.2
+    self.threshold = 3.0
+    self.scale = 0.8
+    self.minStd = 1e-6
 
     self.ewma = None
     self.variance = 0.0
@@ -122,50 +122,6 @@ class EwmaDetector(AnomalyDetector):
 
       self.ewma += self.alpha * diff
       self.variance = (1 - self.alpha) * (self.variance + self.alpha * diff * diff)
-
-    if self._recordIndex < self.probationaryPeriod:
-      score = 0.0
-
-    self._recordIndex += 1
-    return (score, )
-
-
-
-class AdaptiveThresholdDetector(AnomalyDetector):
-  """
-  Adaptive threshold detector using a sliding mean and max deviation.
-
-  Computes ratio = |x - mean| / max_dev. `sensitivity` controls where the
-  logistic-transformed score crosses 0.5.
-  """
-
-  def __init__(self, *args, **kwargs):
-    super(AdaptiveThresholdDetector, self).__init__(*args, **kwargs)
-
-    self.windowSize = int(os.environ.get("NAB_ADAPTIVE_WINDOW", "100"))
-    self.sensitivity = float(os.environ.get("NAB_ADAPTIVE_SENSITIVITY", "2.0"))
-    self.scale = float(os.environ.get("NAB_ADAPTIVE_SCALE", "0.6"))
-    self.minDev = float(os.environ.get("NAB_ADAPTIVE_MIN_DEV", "1e-6"))
-
-    self.window = deque(maxlen=self.windowSize)
-    self._recordIndex = 0
-
-
-  def handleRecord(self, inputData):
-    score = 0.0
-    value = inputData["value"]
-
-    # Score using past-only window statistics.
-    if len(self.window) >= self.window.maxlen:
-      mean = sum(self.window) / len(self.window)
-      maxDev = max(abs(x - mean) for x in self.window)
-      if maxDev < self.minDev:
-        maxDev = self.minDev
-
-      ratio = abs(value - mean) / maxDev
-      score = _logisticScore(ratio, center=self.sensitivity, scale=self.scale)
-
-    self.window.append(value)
 
     if self._recordIndex < self.probationaryPeriod:
       score = 0.0
