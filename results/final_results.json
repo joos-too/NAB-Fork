@@ -20,9 +20,9 @@
         "standard": 58.20022252594827
     },
     "ewma": {
-        "reward_low_FN_rate": 37.7214473360925,
-        "reward_low_FP_rate": 3.164128745967487,
-        "standard": 25.69195167257472
+        "reward_low_FN_rate": 39.750720606032154,
+        "reward_low_FP_rate": 11.610655256191103,
+        "standard": 29.13028119835554
     },
     "expose": {
         "reward_low_FN_rate": 26.920946783333335,
@@ -85,8 +85,8 @@
         "standard": 39.649523496077585
     },
     "zScore": {
-        "reward_low_FN_rate": 43.97451619411344,
-        "reward_low_FP_rate": 19.239015535347413,
-        "standard": 32.87229781872344
+        "reward_low_FN_rate": 43.34772109521101,
+        "reward_low_FP_rate": 23.19644733962441,
+        "standard": 33.345886880447225
     }
 }

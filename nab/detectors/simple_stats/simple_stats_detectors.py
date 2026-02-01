@@ -46,9 +46,9 @@ class ZScoreDetector(AnomalyDetector):
   def __init__(self, *args, **kwargs):
     super(ZScoreDetector, self).__init__(*args, **kwargs)
 
-    self.windowSize = 250
+    self.windowSize = 300
     self.threshold = 2.5
-    self.scale = 0.7
+    self.scale = 3
 
     self.window = deque(maxlen=self.windowSize)
     self._recordIndex = 0
@@ -89,9 +89,9 @@ class EwmaDetector(AnomalyDetector):
   def __init__(self, *args, **kwargs):
     super(EwmaDetector, self).__init__(*args, **kwargs)
 
-    self.alpha = 0.1
-    self.threshold = 3.0
-    self.scale = 0.8
+    self.alpha = 0.05
+    self.threshold = 3
+    self.scale = 3
 
     self.ewma = None
     self.variance = 0.0
