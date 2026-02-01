@@ -85,8 +85,8 @@
         "standard": 39.649523496077585
     },
     "zScore": {
-        "reward_low_FN_rate": 43.67698647371145,
-        "reward_low_FP_rate": 18.357031068622625,
-        "standard": 32.42600323812044
+        "reward_low_FN_rate": 43.97451619411344,
+        "reward_low_FP_rate": 19.239015535347413,
+        "standard": 32.87229781872344
     }
 }

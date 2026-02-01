@@ -49,7 +49,6 @@ class ZScoreDetector(AnomalyDetector):
     self.windowSize = 250
     self.threshold = 2.5
     self.scale = 0.7
-    self.minStd = 1e-6
 
     self.window = deque(maxlen=self.windowSize)
     self._recordIndex = 0
@@ -65,10 +64,8 @@ class ZScoreDetector(AnomalyDetector):
       mean = sum(self.window) / len(self.window)
       variance = sum((x - mean) ** 2 for x in self.window) / len(self.window)
       std = math.sqrt(variance)
-      if std < self.minStd:
-        std = self.minStd
 
-      z = abs((value - mean) / std)
+      z = abs((value - mean) / std) if std > 0 else None
       score = _logisticScore(z, center=self.threshold, scale=self.scale)
 
     self.window.append(value)
@@ -95,7 +92,6 @@ class EwmaDetector(AnomalyDetector):
     self.alpha = 0.1
     self.threshold = 3.0
     self.scale = 0.8
-    self.minStd = 1e-6
 
     self.ewma = None
     self.variance = 0.0
@@ -113,10 +109,8 @@ class EwmaDetector(AnomalyDetector):
       # Score against the previous EWMA (prediction), then update state.
       diff = value - self.ewma
       std = math.sqrt(self.variance)
-      if std < self.minStd:
-        std = self.minStd
 
-      ratio = abs(diff) / std
+      ratio = abs(diff) / std if std > 0 else None
       score = _logisticScore(ratio, center=self.threshold, scale=self.scale)
 
       self.ewma += self.alpha * diff
