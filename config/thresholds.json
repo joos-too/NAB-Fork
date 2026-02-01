@@ -71,16 +71,16 @@
     },
     "ewma": {
         "reward_low_FN_rate": {
-            "score": -93.66749229100785,
-            "threshold": 0.8549766833590732
+            "score": -93.66749229100783,
+            "threshold": 0.9347021917460236
         },
         "reward_low_FP_rate": {
-            "score": -89.06327980563664,
-            "threshold": 0.9999999999848956
+            "score": -89.10788704505028,
+            "threshold": 0.9999999999987216
         },
         "standard": {
             "score": -48.41774761981496,
-            "threshold": 0.9194493015086296
+            "threshold": 0.9747248169910732
         }
     },
     "expose": {
@@ -254,15 +254,15 @@
     "zScore": {
         "reward_low_FN_rate": {
             "score": -81.14993058866546,
-            "threshold": 0.8000703946536877
+            "threshold": 0.8889540609982979
         },
         "reward_low_FP_rate": {
             "score": -62.18424217207138,
-            "threshold": 0.9958986416986704
+            "threshold": 0.9997357870525008
         },
         "standard": {
             "score": -38.63754243736223,
-            "threshold": 0.829947752377315
+            "threshold": 0.9151253455997744
         }
     }
 }

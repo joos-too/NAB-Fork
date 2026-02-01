@@ -21,7 +21,7 @@
     },
     "ewma": {
         "reward_low_FN_rate": 39.750720606032154,
-        "reward_low_FP_rate": 11.610655256191103,
+        "reward_low_FP_rate": 11.591427997823164,
         "standard": 29.13028119835554
     },
     "expose": {

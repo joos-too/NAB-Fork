@@ -48,7 +48,7 @@ class ZScoreDetector(AnomalyDetector):
 
     self.windowSize = 300
     self.threshold = 2.5
-    self.scale = 3
+    self.scale = 2
 
     self.window = deque(maxlen=self.windowSize)
     self._recordIndex = 0
@@ -91,7 +91,7 @@ class EwmaDetector(AnomalyDetector):
 
     self.alpha = 0.05
     self.threshold = 3
-    self.scale = 3
+    self.scale = 2
 
     self.ewma = None
     self.variance = 0.0
